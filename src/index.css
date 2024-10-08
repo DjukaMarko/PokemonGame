@@ -1,13 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  height: 100vh; /* This can be adjusted to be less than 100vh */
+  overflow: auto; /* Allow scrolling */
+  position: relative; 
+  font-family: 'Montserrat', sans-serif; /* Add a font for better readability */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body::before {
+  content: "";
+  position: fixed; /* Fixed positioning */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../public/bg2.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px); /* Adjust the blur amount */
+  z-index: -1; /* Ensure the image is behind the content */
 }
