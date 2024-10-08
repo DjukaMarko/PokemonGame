@@ -4,22 +4,21 @@
 
 body {
   margin: 0;
-  height: 100vh; /* This can be adjusted to be less than 100vh */
-  overflow: auto; /* Allow scrolling */
+  height: 100vh;
+  overflow: auto; 
   position: relative; 
-  font-family: 'Montserrat', sans-serif; /* Add a font for better readability */
+  font-family: 'Montserrat', sans-serif; 
 }
 
 body::before {
   content: "";
-  position: fixed; /* Fixed positioning */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../public/bg2.jpg'); /* Replace with your image URL */
+  background-image: url('../public/bg.png'); 
   background-size: cover;
   background-position: center;
-  filter: blur(10px); /* Adjust the blur amount */
-  z-index: -1; /* Ensure the image is behind the content */
+  z-index: -1; 
 }

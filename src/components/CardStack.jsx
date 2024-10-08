@@ -23,13 +23,13 @@ const GET_POKEMON_COUNT = gql`
   }
 `;
 
-export default function CardStack({ client, pokemon, setPokemon }) {
+export default function CardStack({ client, pokemon, setPokemon, setSelectedPokemon }) {
     const { data: countData } = useQuery(GET_POKEMON_COUNT);
 
     useEffect(() => {
         if (countData && countData.pokemons && pokemon.length === 0) {
             const totalCount = countData.pokemons.count;
-            const randomOffset = Math.floor(Math.random() * totalCount); // Random offset
+            const randomOffset = Math.floor(Math.random() * totalCount);
 
             client
                 .query({
@@ -46,7 +46,7 @@ export default function CardStack({ client, pokemon, setPokemon }) {
         <div id="cardStack" className="absolute top-0 left-0 p-5 flex flex-col justify-center items-center bg-white rounded-br-md space-y-4">
             <p className="text-2xl font-bold">Card Stack</p>
             <div className="w-36 h-40">
-                <Card data={pokemon} dropCard={setPokemon} parentId="cardStack" />
+                <Card data={pokemon} dropCard={setPokemon} parentId="cardStack" setSelectedPokemon={setSelectedPokemon} />
             </div>
         </div>
     )
