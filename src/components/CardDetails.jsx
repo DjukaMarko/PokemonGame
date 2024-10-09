@@ -7,7 +7,7 @@ export default function CardDetails({ selectedPokemon, GET_POKEMON_DETAILS }) {
     const [pokemonDetails, setPokemonDetails] = useState({});
 
     const { loading, data } = useQuery(GET_POKEMON_DETAILS, {
-        variables: { name: selectedPokemon?.name || '' }, // Provide a default value if selectedPokemon is empty
+        variables: { name: selectedPokemon?.name || '' },
         skip: !selectedPokemon, // Prevent the query from executing if selectedPokemon is not defined
     });
 

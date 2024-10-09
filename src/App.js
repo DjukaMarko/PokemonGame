@@ -31,10 +31,14 @@ const GET_POKEMON_DETAILS = gql`
 
 
 
-// Main App component
 const App = () => {
-  const [deck_1, setDeck1] = useState([]);
-  const [deck_2, setDeck2] = useState([]);
+  const [decks, setDecks] = useState({
+    deck1: [],
+    deck2: [],
+    cardStack: [],
+    // Add other decks here as needed
+  });
+
   const [pokemon, setPokemon] = useState([]); // Current pokemon in stack.
 
   const [selectedPokemon, setSelectedPokemon] = useState([]);
@@ -44,10 +48,8 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <div className='w-screen h-screen flex justify-center items-center'>
-        <div className={`${deck_1.length + deck_2.length === 10 && 'pointer-events-none'}`}>
-          <CardStack client={client} pokemon={pokemon} setPokemon={setPokemon} setSelectedPokemon={setSelectedPokemon} />
-        </div>
-        <Decks deck_1={deck_1} deck_2={deck_2} setDeck1={setDeck1} setDeck2={setDeck2} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
+        <CardStack client={client} pokemon={pokemon} setPokemon={setPokemon} setSelectedPokemon={setSelectedPokemon} />
+        <Decks decks={decks} setDecks={setDecks} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
         <CardDetails selectedPokemon={selectedPokemon} GET_POKEMON_DETAILS={GET_POKEMON_DETAILS} />
       </div>
     </ApolloProvider>

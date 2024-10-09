@@ -1,11 +1,10 @@
-import Deck1 from "./Deck1";
-import Deck2 from "./Deck2";
+import Deck from "./Deck";
 
-const Decks = ({ deck_1, deck_2, setDeck1, setDeck2, resetStack, setSelectedPokemon }) => {
+const Decks = ({ decks, setDecks, resetStack, setSelectedPokemon }) => {
     return (
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4">
-            <Deck1 deck_1={deck_1} setDeck1={setDeck1} setDeck2={setDeck2} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
-            <Deck2 deck_2={deck_2} setDeck1={setDeck1} setDeck2={setDeck2} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
+            <Deck decks={decks} deckName="Deck 1" deckId="deck1" setDecks={setDecks} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
+            <Deck decks={decks} deckName="" deckId="deck2" setDecks={setDecks} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
         </div>
     );
 };

@@ -7,7 +7,6 @@ import { TailSpin } from "react-loader-spinner";
 export default function Card({ data, parentId, setSelectedPokemon }) {
     const [isLoading, setLoading] = useState(true);
 
-
     useEffect(() => {
         if (data.length > 0) setLoading(false);
     }, [data]);
