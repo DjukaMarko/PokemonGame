@@ -1,4 +1,5 @@
 export default function capitalizeFirstLetters(input) {
+    if (!input) return '';
     const replacedString = input.replace(/-/g, ' ');
   
     const capitalizedString = replacedString

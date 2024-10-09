@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ApolloClient, InMemoryCache, gql, ApolloProvider, useQuery } from '@apollo/client';
+import { ApolloClient, InMemoryCache, gql, ApolloProvider } from '@apollo/client';
 import CardStack from './components/CardStack';
 import Decks from './components/Decks';
 import CardDetails from './components/CardDetails';
@@ -42,15 +42,16 @@ const App = () => {
 
   const resetStack = () => setPokemon([]);
   return (
-  <ApolloProvider client={client}>
-    <div className='w-screen h-screen flex justify-center items-center'>
-      <div className={`${deck_1.length + deck_2.length === 10 && 'pointer-events-none'}`}>
-        <CardStack client={client} pokemon={pokemon} setPokemon={setPokemon} setSelectedPokemon={setSelectedPokemon} />
+    <ApolloProvider client={client}>
+      <div className='w-screen h-screen flex justify-center items-center'>
+        <div className={`${deck_1.length + deck_2.length === 10 && 'pointer-events-none'}`}>
+          <CardStack client={client} pokemon={pokemon} setPokemon={setPokemon} setSelectedPokemon={setSelectedPokemon} />
+        </div>
+        <Decks deck_1={deck_1} deck_2={deck_2} setDeck1={setDeck1} setDeck2={setDeck2} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
+        <CardDetails selectedPokemon={selectedPokemon} GET_POKEMON_DETAILS={GET_POKEMON_DETAILS} />
       </div>
-      <Decks deck_1={deck_1} deck_2={deck_2} setDeck1={setDeck1} setDeck2={setDeck2} resetStack={resetStack} setSelectedPokemon={setSelectedPokemon} />
-      <CardDetails selectedPokemon={selectedPokemon} GET_POKEMON_DETAILS={GET_POKEMON_DETAILS} />
-    </div>
-  </ApolloProvider>
-)};
+    </ApolloProvider>
+  )
+};
 
 export default App;
